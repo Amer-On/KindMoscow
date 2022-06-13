@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hack</title>
+    <link rel="stylesheet" href="static/css/reset.css">
+    <link rel="stylesheet" href="static/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-wrapper">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-6 col-md-1 order-1">
+                        <a href="index.html" class="header-logo">
+                            <img src="../static/img/header-logo.png" alt="logo">
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-10 col-lg-7 order-3 oder-md-2">
+                        <div class="header-nav">
+                            <a href="/" id="hero" class="header-nav__elem">Главная</a>
+                            <a href="#" id="about" class="header-nav__elem">О нас</a>
+                            <a href="/events" id="events" class="header-nav__elem">События</a>
+                            <a href="#" id="news" class="header-nav__elem">Новости</a>
+                            <a href="#" id="rating" class="header-nav__elem">Рейтинг</a>
+                            <a href="#" id="education" class="header-nav__elem">Обучение</a>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-1 offset-lg-1 order-2 order-md-3">
+                        <div class="header-sign" style="{{ noAuth }}">
+                            <a href="/login" class="header-sign__btn">Авторизация</a>
+                        </div>
+                        <div class="header-profile" style="{{ isAuth }}">
+                            <div class="header-profile__icon">
+                                <a class="header-nav__elem">Профиль</a>
+                            </div>
+                            <div class="header-profile__dropmenu profile-dropmenu">
+                                <span class="rectangle"></span>
+                                <div class="profile-dropmenu__info">
+                                    <div class="profile-dropmenu__text">
+                                        <h2>{{ name }}</h2>
+                                    </div>
+                                </div>
+                                <div class="profile-dropmenu__buttons">
+                                    <a href="/edit-profile">Редактировать профиль</a>
+                                    <a href="/quit">Выход</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.header-wrapper -->
+        </div>
+        <!-- /.container -->
+    </header>
+    <!-- /.header -->
+
+
+    <section class="addEvent">
+        <div class="container">
+            <h2 class="addEvent-title">{{ typeEdit }}</h2>
+            <form method="post" class="addEvent-form">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="title">Название</label>
+                            <input type="text" name="titleForm" value="{{ title }}" id="title">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="description">Описание</label>
+                            <textarea name="descriptionForm" id="description">{{ description }}</textarea>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="place">Метро</label>
+                            <input type="text" name="metroForm" value="{{ metro }}" id="place">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label for="date">Дата</label>
+                            <div class="form-group__date">
+                                <input type="text" name="dateForm" value="{{ date }}" id="date">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-7 offset-md-1">
+                        <div class="form-group">
+                            <label for="skills">Направление волонтерства</label>
+                            <select name="numberForm" id="skills">
+                                <option value="0" {{ volunteer0 }}="">Патриотическое</option>
+                                <option value="1" {{ volunteer1 }}="">Социальное</option>
+                                <option value="2" {{ volunteer2 }}="">Спортивное</option>
+                                <option value="3" {{ volunteer3 }}="">Событийное</option>
+                                <option value="4" {{ volunteer4 }}="">Культурное</option>
+                                <option value="5" {{ volunteer5 }}="">Добровольцы МЧС</option>
+                                <option value="6" {{ volunteer6 }}="">Эко</option>
+                                <option value="7" {{ volunteer7 }}="">Медицинское</option>
+                                <option value="8" {{ volunteer8 }}="">Туристическое</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label>Возраст</label>
+                            <div class="form-group">
+                                <input type="number" name="agesForm" value="{{ ages }}" step="1" placeholder="От" id="age">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-7 offset-md-1">
+                        <div class="form-group">
+                            <label for="title">Количество волонтеров</label>
+                            <input type="number" name="countForm" value="{{ count }}" id="duration" placeholder="Если количество волонтеров не ограничено - оставьте поле пустым">
+                        </div>
+                    </div>
+                </div>
+                <div class="addEvent-form__submit">
+                    <input type="submit" value="Сохранить">
+                </div>
+            </form>
+        </div>
+        <!-- /.container -->
+    </section>
+    <!-- /.addEvent -->
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-wrapper">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <ul class="footer-requisites">
+                            <li><a href="help.html">Помощь</a></li>
+                            <li><a href="documents.html">Документы</a></li>
+                            <li><a href="84997226920" type="tel">8 (499) 722-69-90</a></li>
+                            <li>Москва, Ленинградский пр-т, д. 5,<br> стр.1 ГБУ города Москвы</li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="footer-info">
+                            <div class="footer-info__card">
+                                <img src="static/img/kos.png" alt="kos">
+                                <p>Комитет общественных связей и молодежной политики Москвы</p>
+                            </div>
+                            <div class="footer-info__card">
+                                <img src="static/img/gov.png" alt="gov">
+                                <p>Правительство Москвы</p>
+                            </div>
+                        </div>
+                        <div class="footer-links">
+                            <div class="footer-links__wrapper">
+                                <a href="https://youtube.com">
+                                    <img src="static/img/youtube.svg" alt="youtube">
+                                </a>
+                                <a href="https://web.whatsapp.com">
+                                    <img src="static/img/whatsapp.svg" alt="whatsapp">
+                                </a>
+                                <a href="https://web.telegram.org">
+                                    <img src="static/img/tg.svg" alt="tg">
+                                </a>
+                                <a href="https://vk.com">
+                                    <img src="static/img/vk.svg" alt="vk">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </footer>
+    <!-- /.footer -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="static/js/main.js"></script>
+</body>
+</html>

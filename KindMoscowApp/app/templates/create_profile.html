@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hack</title>
+    <link rel="stylesheet" href="static/css/reset.css">
+    <link rel="stylesheet" href="static/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-wrapper">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-6 col-md-1 order-1">
+                        <a href="index.html" class="header-logo">
+                            <img src="../static/img/header-logo.png" alt="logo">
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-10 col-lg-7 order-3 oder-md-2">
+                        <div class="header-nav">
+                            <a href="/" id="hero" class="header-nav__elem">Главная</a>
+                            <a href="#" id="about" class="header-nav__elem">О нас</a>
+                            <a href="/events" id="events" class="header-nav__elem">События</a>
+                            <a href="#" id="news" class="header-nav__elem">Новости</a>
+                            <a href="#" id="rating" class="header-nav__elem">Рейтинг</a>
+                            <a href="#" id="education" class="header-nav__elem">Обучение</a>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-1 offset-lg-1 order-2 order-md-3">
+                        <div class="header-sign" style="{{ noAuth }}">
+                            <a href="/login" class="header-sign__btn">Авторизация</a>
+                        </div>
+                        <div class="header-profile" style="{{ isAuth }}">
+                            <div class="header-profile__icon">
+                                <a class="header-nav__elem">Профиль</a>
+                            </div>
+                            <div class="header-profile__dropmenu profile-dropmenu">
+                                <span class="rectangle"></span>
+                                <div class="profile-dropmenu__info">
+                                    <div class="profile-dropmenu__text">
+                                        <h2>{{ name }}</h2>
+                                    </div>
+                                </div>
+                                <div class="profile-dropmenu__buttons">
+                                    <a href="/edit-profile">Редактировать профиль</a>
+                                    <a href="/quit">Выход</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.header-wrapper -->
+        </div>
+        <!-- /.container -->
+    </header>
+    <!-- /.header -->
+
+    <section class="profile">
+        <div class="container">
+            <div class="profile-wrapper">
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <ul class="profile-sidebar">
+                            <li><a href="#maininfo" class="profile-sidebar__elem profile-sidebar__elem_active">Основная информация</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-8">
+                        <form method="post" id="maininfo" class="profile-form profile-info">
+                            <h2 class="profile-form__title profile-info__title">
+                                Основная информация
+                                <input type="submit" value="Сохранить">
+                            </h2>
+                            <div class="profile-info__wrapper">
+                                <div class="profile-info__fill">
+                                    <div class="profile-form__group">
+                                        <label for="lastname">Фамилия</label>
+                                        <input value="{{surname}}" name="surnameForm" type="text" id="lastname" required>
+                                    </div>
+                                    <div class="profile-form__group">
+                                        <label for="name">Имя</label>
+                                        <input value="{{name}}" name="nameForm" type="text" id="name" required>
+                                    </div>
+                                    <div class="profile-form__group">
+                                        <label for="secondname">Отчество (при наличии)</label>
+                                        <input value="{{patronymic}}" name="patronymicForm" type="text" id="secondname">
+                                    </div>
+                                    <div class="profile-form__group">
+                                        <label for="birthday">День рождения</label>
+                                        <div class="profile-form__date">
+                                            <input value="{{birth}}" name="birthForm" type="text" id="birthday" required>
+                                        </div>
+                                    </div>
+                                    <div class="profile-form__group">
+                                        <label for="organization">Организация</label>
+                                        <input value="{{company}}" name="companyForm" type="text" id="organization" required>
+                                    </div>
+                                    <div class="profile-form__group">
+                                        <label for="education">Образование</label>
+                                        <input value="{{education}}" name="educationForm" type="text" id="education" required>
+                                    </div>
+                                    <div class="profile-form__group">
+                                        <label for="placement">Местоположение</label>
+                                        <input value="{{location}}" name="locationForm" type="text" id="placement" required>
+                                    </div>
+                                    <div class="profile-info__choice">
+                                        <h2>Выберите направления волонтерства</h2>
+                                        <div class="checks-wrapper">
+                                            <div class="checks">
+                                                <label for="patriot" class="checks-label">Патриотическое</label>
+                                                <input name="volunteer0Form" type="checkbox" class="checks-input" value="patriot" {{checked0}} id="patriot">
+                                            </div>
+                                            <div class="checks">
+                                                <label for="social" class="checks-label">Социальное</label>
+                                                <input name="volunteer1Form" type="checkbox" class="checks-input" value="social" {{checked1}} id="social">
+                                            </div>
+                                            <div class="checks">
+                                                <label for="sport" class="checks-label">Спортивное</label>
+                                                <input name="volunteer2Form" type="checkbox" class="checks-input" value="sport" {{checked2}} id="sport">
+                                            </div>
+                                            <div class="checks">
+                                                <label for="culture" class="checks-label">Культурное</label>
+                                                <input name="volunteer3Form" type="checkbox" class="checks-input" value="culture" {{checked3}} id="culture">
+                                            </div>
+                                            <div class="checks">
+                                                <label for="events" class="checks-label">Событийное</label>
+                                                <input name="volunteer4Form" type="checkbox" class="checks-input" value="events" {{checked4}} id="events">
+                                            </div>
+                                            <div class="checks">
+                                                <label for="eco" class="checks-label">Эко</label>
+                                                <input name="volunteer5Form" type="checkbox" class="checks-input" value="eco" {{checked5}} id="eco">
+                                            </div>
+                                            <div class="checks">
+                                                <label for="mes" class="checks-label">Добровольцы МЧС</label>
+                                                <input name="volunteer6Form" type="checkbox" class="checks-input" value="mes" {{checked6}} id="mes">
+                                            </div>
+                                            <div class="checks">
+                                                <label for="medical" class="checks-label">Медицинское</label>
+                                                <input name="volunteer7Form" type="checkbox" class="checks-input" value="medical" {{checked7}} id="medical">
+                                            </div>
+                                            <div class="checks">
+                                                <label for="tourism" class="checks-label">Туристическое</label>
+                                                <input name="volunteer8Form" type="checkbox" class="checks-input" value="tourism" {{checked8}} id="tourism">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.profile-wrapper -->
+        </div>
+        <!-- /.container -->
+    </section>
+    <!-- /.profile -->
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-wrapper">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <ul class="footer-requisites">
+                            <li><a href="help.html">Помощь</a></li>
+                            <li><a href="documents.html">Документы</a></li>
+                            <li><a href="84997226920" type="tel">8 (499) 722-69-90</a></li>
+                            <li>Москва, Ленинградский пр-т, д. 5,<br> стр.1 ГБУ города Москвы</li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="footer-info">
+                            <div class="footer-info__card">
+                                <img src="static/img/kos.png" alt="kos">
+                                <p>Комитет общественных связей и молодежной политики Москвы</p>
+                            </div>
+                            <div class="footer-info__card">
+                                <img src="static/img/gov.png" alt="gov">
+                                <p>Правительство Москвы</p>
+                            </div>
+                        </div>
+                        <div class="footer-links">
+                            <div class="footer-links__wrapper">
+                                <a href="https://youtube.com">
+                                    <img src="static/img/youtube.svg" alt="youtube">
+                                </a>
+                                <a href="https://web.whatsapp.com">
+                                    <img src="static/img/whatsapp.svg" alt="whatsapp">
+                                </a>
+                                <a href="https://web.telegram.org">
+                                    <img src="static/img/tg.svg" alt="tg">
+                                </a>
+                                <a href="https://vk.com">
+                                    <img src="static/img/vk.svg" alt="vk">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </footer>
+    <!-- /.footer -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="static/js/main.js"></script>
+</body>
+</html>

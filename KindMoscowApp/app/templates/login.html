@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hack</title>
+    <link rel="stylesheet" href="static/css/reset.css">
+    <link rel="stylesheet" href="static/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-wrapper">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-6 col-md-1 order-1">
+                        <a href="index.html" class="header-logo">
+                            <img src="static/img/header-logo.png" alt="logo">
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-10 col-lg-7 order-3 oder-md-2">
+                        <div class="header-nav">
+                            <a href="/" id="hero" class="header-nav__elem">Главная</a>
+                            <a href="#" id="about" class="header-nav__elem">О нас</a>
+                            <a href="/events" id="events" class="header-nav__elem">События</a>
+                            <a href="#" id="news" class="header-nav__elem">Новости</a>
+                            <a href="#" id="rating" class="header-nav__elem">Рейтинг</a>
+                            <a href="#" id="education" class="header-nav__elem">Обучение</a>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-1 offset-lg-1 order-2 order-md-3">
+                        <div class="header-sign">
+                            <a href="/login" class="header-sign__btn">Авторизация</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.header-wrapper -->
+        </div>
+        <!-- /.container -->
+    </header>
+    <!-- /.header -->
+
+    <section class="forAuthorization signin">
+        <div class="container">
+            <div class="signin-wrapper form-wrapper">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-3 col-lg-5">
+                        <div class="sigin-logo form-wrapper__logo">
+                            <a href="/">
+                                <img src="static/img/logo.png" alt="logo">
+                                <span>Добрая <br>Москва</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-9 col-lg-7">
+                        <form method="post" class="signin-form">
+                            <span class="form-wrapper__error">{{error}}</span>
+                            <h2 class="signin-form__title">Войти</h2>
+                            <div class="form-wrapper__text">
+                                <span>Новый пользователь?</span> <a href="/register">Создать учетную запись</a>
+                            </div>
+                            <div class="form-wrapper__group">
+                                <label for="mail">Адрес электронной почты</label>
+                                <input type="email" id="mail" name="emailForm" value="{{ saveEmail }}" required>
+                            </div>
+                            <div class="form-wrapper__group">
+                                <label for="password">Введите пароль</label>
+                                <input type="password" name="passwordForm" id="password" required>
+                            </div>
+                            <div class="form-wrapper__buttons signin-form__buttons">
+                                <a href="/recovery" class="btn btn-tran">Забыли пароль?</a>
+                                <input type="submit" value="Войти" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="static/js/main.js"></script>
+</body>
+</html>

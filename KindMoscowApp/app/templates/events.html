@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Добрая Москва</title>
+    </head>
+    <body>
+        <a href="/profile/{{ personal_user_id }}"><button type="button" name="button">Профиль</button></a>
+        <a href="/events"><button type="button" name="button">Активные мероприятия</button></a>
+        <a href="/create_event" {{ isSearcher }}><button type="button" name="button">Создать мероприятие</button></a>
+        <a href="/quit" {{ isAuth }}><button type="button" name="button">Выйти</button></a>
+        <hr>
+        <div>
+            <form method="post" {{ hiddenFilter }}>
+                <p>Метро: <input type="text" name="filterMetro" value="{{ filterMetro }}"></p>
+                <p>Направление: <select class="" name="filterNumber">
+                    <option value="-1" {{ volunteerNone }}></option>
+                    <option value="0" {{ volunteer0 }}>Патриотическое волонтерство</option>
+                    <option value="1" {{ volunteer1 }}>Социальное волонтерство</option>
+                    <option value="2" {{ volunteer2 }}>Спортивное волонтерство</option>
+                    <option value="3" {{ volunteer3 }}>Событийное волонтерство</option>
+                    <option value="4" {{ volunteer4 }}>Культурное волонтерство</option>
+                    <option value="5" {{ volunteer5 }}>Добровольцы МЧС</option>
+                    <option value="6" {{ volunteer6 }}>Эко-волонтерство</option>
+                    <option value="7" {{ volunteer7 }}>Медицинское волонтерство</option>
+                    <option value="8" {{ volunteer8 }}>Туристическое волонтерство</option>
+                </select></p>
+                <p>Дата: <input type="date" name="filterDate" value="{{ filterDate }}"></p>
+                <button type="submit" name="eventType" value="on">Применить фильтр</button>
+                <button type="submit" name="eventType" value="off">Сбросить фильтры</button>
+            </form>
+        </div>
+        <hr>
+        {% for event in events %}
+                <h4>{{ event.title }}</h4>
+                <sup>{{ event.description }}</sup>
+                <p>Метро: {{ event.metro }}</p>
+                <p>Направление: {{ event.volunteer }}</p>
+                <p>Количество свободных мест: {{ event.count }}</p>
+                <p>{{ event.volunteerType }}</p>
+                <p>Дата: {{ event.data }}</p>
+                <p>{{ event.ages }}+</p>
+                <p>Статус: {{ event.isActive }}</p>
+                <a href="/event/{{ event.id }}"><button type="button">Открыть мероприятие</button></a>
+                <hr>
+        {% endfor %}
+    </body>
+</html>

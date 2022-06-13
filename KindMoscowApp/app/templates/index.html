@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hack</title>
+    <link rel="stylesheet" href="static/css/reset.css">
+    <link rel="stylesheet" href="static/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="static/css/slick.css">
+    <link rel="stylesheet" href="static/css/slick-theme.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-wrapper">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-6 col-md-1 order-1">
+                        <a href="index.html" class="header-logo">
+                            <img src="../static/img/header-logo.png" alt="logo">
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-10 col-lg-7 order-3 oder-md-2">
+                        <div class="header-nav">
+                            <a href="/" id="hero" class="header-nav__elem">Главная</a>
+                            <a href="#" id="about" class="header-nav__elem">О нас</a>
+                            <a href="/events" id="events" class="header-nav__elem">События</a>
+                            <a href="#" id="news" class="header-nav__elem">Новости</a>
+                            <a href="#" id="rating" class="header-nav__elem">Рейтинг</a>
+                            <a href="#" id="education" class="header-nav__elem">Обучение</a>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-1 offset-lg-1 order-2 order-md-3">
+                        <div class="header-sign" style="{{ noAuth }}">
+                            <a href="/login" class="header-sign__btn">Авторизация</a>
+                        </div>
+                        <div class="header-profile" style="{{ isAuth }}">
+                            <div class="header-profile__icon">
+                                <a class="header-nav__elem">Профиль</a>
+                            </div>
+                            <div class="header-profile__dropmenu profile-dropmenu">
+                                <span class="rectangle"></span>
+                                <div class="profile-dropmenu__info">
+                                    <div class="profile-dropmenu__text">
+                                        <h2>{{ name }}</h2>
+                                    </div>
+                                </div>
+                                <div class="profile-dropmenu__buttons">
+                                    <a href="/edit-profile">Редактировать профиль</a>
+                                    <a href="/quit">Выход</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.header-wrapper -->
+        </div>
+        <!-- /.container -->
+    </header>
+    <!-- /.header -->
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-wrapper">
+                <h1 class="hero-title">Добрая Москва</h1>
+                <h2 class="hero-subtitle">Стань частью большой команды <br> Присоединяйся к нам и твори добро</h2>
+                <div class="hero-cards">
+                    <div class="row">
+                        <div class="col-12 col-sm-4 col-md-3">
+                            <div class="hero-cards__item">
+                                <h2>476+</h2>
+                                <span>Волонтеров</span>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4 col-md-3">
+                            <div class="hero-cards__item">
+                                <h2>1070+</h2>
+                                <span>часов работы</span>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-4 col-md-3">
+                            <div class="hero-cards__item">
+                                <h2>190+</h2>
+                                <span>мероприятий</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.hero-wrapper -->
+        </div>
+        <!-- /.container -->
+        <div class="hero-form">
+            <div class="container">
+                <form method="post">
+                    <input type="submit" class="btn btn-primary hero-form__btn" value="Поиск">
+                    <div class="form-group">
+                        <label for="location">Метро</label>
+                        <input type="text" name="metroForm" id="location">
+                    </div>
+                    <div class="form-group">
+                        <label for="activity">Направление</label>
+                        <select name="activity" id="activity">
+                            <option value="-1"></option>
+                            <option value="0">Патриотическое волонтерство</option>
+                            <option value="1">Социальное волонтерство</option>
+                            <option value="2">Спортивное волонтерство</option>
+                            <option value="3">Событийное волонтерство</option>
+                            <option value="4">Культурное волонтерство</option>
+                            <option value="5">Добровольцы МЧС</option>
+                            <option value="6">Эко-волонтерство</option>
+                            <option value="7">Медицинское волонтерство</option>
+                            <option value="8">Туристическое волонтерство</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Дата</label>
+                        <input type="text" name="dateForm" id="date">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- /.section hero -->
+
+    <section class="section event">
+        <div class="container">
+            <h2 class="event-title">Ближайшие события</h2>
+            <div class="event-wrapper">
+                <div class="event-wrapper__item">
+                    <div class="row">
+                        <div class="col-12 col-sm-11 col-lg-6">
+                            <div class="event-card event-bigCard">
+                                <div class="event-bigCard__img">
+                                    <img src="static/img/event1.png" alt="event">
+                                </div>
+                                <div class="event-card__info">
+                                    <h3 class="event-bigCard__title">27-31 мая</h3>
+                                    <p class="event-bigCard__place">Место:  <span>Парк культуры</span></p>
+                                    <h4 class="event-bigCard__about">О мероприятии:</h4>
+                                    <p class="event-bigCard__text">
+                                        Волонтерам предстоит помощь в проведении вакцинации от CОVID-19 Навигация, запись..
+                                    </p>
+                                    <a href="more.html" class="event-bigCard__link">Подробнее...</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-11 col-lg-5">
+                            <div class="event-card__wrapper">
+                                <div class="event-card">
+                                    <div class="event-card__img">
+                                        <img src="static/img/event2.png" alt="event">
+                                    </div>
+                                    <div class="event-card__info">
+                                        <h3 class="event-card__title">1-2 июня</h3>
+                                        <p class="event-card__place">Место: <span>Савеловская</span></p>
+                                        <h4 class="event-card__about">О мероприятии:</h4>
+                                        <p class="event-card__text">Волонтеры для высаживания деревьев лфцщлщлщуф</p>
+                                        <a href="more.html" class="event-card__link">Подробнее...</a>
+                                    </div>
+                                </div>
+                                <div class="event-card">
+                                    <div class="event-card__img">
+                                        <img src="static/img/event3.png" alt="event">
+                                    </div>
+                                    <div class="event-card__info">
+                                        <h3 class="event-card__title">1-30 июня</h3>
+                                        <p class="event-card__place">Место: <span>Онлайн</span></p>
+                                        <h4 class="event-card__about">О мероприятии:</h4>
+                                        <p class="event-card__text">Доставка продуктов, онлайн общение фцщулцфщлущл</p>
+                                        <a href="more.html" class="event-card__link">Подробнее...</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-wrapper__item">
+                    <div class="row">
+                        <div class="col-12 col-sm-11 col-lg-6">
+                            <div class="event-card event-bigCard">
+                                <div class="event-bigCard__img">
+                                    <img src="static/img/event1.png" alt="event">
+                                </div>
+                                <div class="event-card__info">
+                                    <h3 class="event-bigCard__title">27-31 мая</h3>
+                                    <p class="event-bigCard__place">Место:  <span>Парк культуры</span></p>
+                                    <h4 class="event-bigCard__about">О мероприятии:</h4>
+                                    <p class="event-bigCard__text">
+                                        Волонтерам предстоит помощь в проведении вакцинации от CОVID-19 Навигация, запись..
+                                    </p>
+                                    <a href="more.html" class="event-bigCard__link">Подробнее...</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-11 col-lg-5">
+                            <div class="event-card__wrapper">
+                                <div class="event-card">
+                                    <div class="event-card__img">
+                                        <img src="static/img/event2.png" alt="event">
+                                    </div>
+                                    <div class="event-card__info">
+                                        <h3 class="event-card__title">1-2 июня</h3>
+                                        <p class="event-card__place">Место: <span>Савеловская</span></p>
+                                        <h4 class="event-card__about">О мероприятии:</h4>
+                                        <p class="event-card__text">Волонтеры для высаживания деревьев лфцщлщлщуф</p>
+                                        <a href="more.html" class="event-card__link">Подробнее...</a>
+                                    </div>
+                                </div>
+                                <div class="event-card">
+                                    <div class="event-card__img">
+                                        <img src="static/img/event3.png" alt="event">
+                                    </div>
+                                    <div class="event-card__info">
+                                        <h3 class="event-card__title">1-30 июня</h3>
+                                        <p class="event-card__place">Место: <span>Онлайн</span></p>
+                                        <h4 class="event-card__about">О мероприятии:</h4>
+                                        <p class="event-card__text">Доставка продуктов, онлайн общение фцщулцфщлущл</p>
+                                        <a href="more.html" class="event-card__link">Подробнее...</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="/events" class="event-link">Все события</a>
+        </div>
+        <!-- /.container -->
+    </section>
+    <!-- /.section event -->
+
+    <section class="section news">
+        <div class="container">
+            <h2 class="news-title">Новости</h2>
+            <div class="news-wrapper">
+                <div class="news-wrapper__item">
+                    <div class="row justify-content-center justify-content-lg-start">
+                        <div class="col-12 col-sm-11 col-lg-4">
+                            <div class="news-card">
+                                <div class="news-card__img">
+                                    <img src="static/img/news1.png" alt="news">
+                                </div>
+                                <a href="#" class="news-card__info">
+                                    <div class="news-card__date">10 июня</div>
+                                    <p class="news-card__text">Международная премия #МЫВМЕСТЕ</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-11 col-lg-3">
+                            <div class="news-card">
+                                <div class="news-card__img">
+                                    <img src="static/img/news2.png" alt="news">
+                                </div>
+                                <a href="#" class="news-card__info">
+                                    <div class="news-card__date">9 июня</div>
+                                    <p class="news-card__text">Гуманитарная помощь</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-11 col-lg-4">
+                            <div class="news-card">
+                                <div class="news-card__img">
+                                    <img src="static/img/news3.png" alt="news">
+                                </div>
+                                <a href="#" class="news-card__info">
+                                    <div class="news-card__date">7 июня</div>
+                                    <p class="news-card__text">Новый тест уже <br> в профиле</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-wrapper__item">
+                    <div class="row">
+                        <div class="col-12 col-sm-11 col-lg-4">
+                            <div class="news-card">
+                                <div class="news-card__img">
+                                    <img src="static/img/news1.png" alt="news">
+                                </div>
+                                <a href="#" class="news-card__info">
+                                    <div class="news-card__date">10 июня</div>
+                                    <p class="news-card__text">Международная премия #МЫВМЕСТЕ</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-11 col-lg-3">
+                            <div class="news-card">
+                                <div class="news-card__img">
+                                    <img src="static/img/news2.png" alt="news">
+                                </div>
+                                <a href="#" class="news-card__info">
+                                    <div class="news-card__date">9 июня</div>
+                                    <p class="news-card__text">Гуманитарная помощь</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-11 col-lg-4">
+                            <div class="news-card">
+                                <div class="news-card__img">
+                                    <img src="static/img/news3.png" alt="news">
+                                </div>
+                                <a href="#" class="news-card__info">
+                                    <div class="news-card__date">7 июня</div>
+                                    <p class="news-card__text">Новый тест уже <br> в профиле</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="news.html" class="news-link">Все новости</a>
+        </div>
+        <!-- /.container -->
+    </section>
+    <!-- /.section news -->
+
+    <section class="section partners">
+        <div class="container">
+            <h2 class="partners-title">Наши партнеры</h2>
+        </div>
+        <div class="partners-wrapper">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="partners-card"><img src="static/img/partners-1.png" alt="partners"></div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="partners-card"><img src="static/img/partners-2.png" alt="partners"></div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="partners-card"><img src="static/img/partners-3.png" alt="partners"></div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="partners-card"><img src="static/img/partners-4.png" alt="partners"></div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="partners-card"><img src="static/img/partners-5.png" alt="partners"></div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="partners-card"><img src="static/img/partners-6.png" alt="partners"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </section>
+    <!-- /.section partners -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-wrapper">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <ul class="footer-requisites">
+                            <li><a href="help.html">Помощь</a></li>
+                            <li><a href="documents.html">Документы</a></li>
+                            <li><a href="84997226920" type="tel">8 (499) 722-69-90</a></li>
+                            <li>Москва, Ленинградский пр-т, д. 5,<br> стр.1 ГБУ города Москвы</li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="footer-info">
+                            <div class="footer-info__card">
+                                <img src="static/img/kos.png" alt="kos">
+                                <p>Комитет общественных связей и молодежной политики Москвы</p>
+                            </div>
+                            <div class="footer-info__card">
+                                <img src="static/img/gov.png" alt="gov">
+                                <p>Правительство Москвы</p>
+                            </div>
+                        </div>
+                        <div class="footer-links">
+                            <div class="footer-links__wrapper">
+                                <a href="https://youtube.com">
+                                    <img src="static/img/youtube.svg" alt="youtube">
+                                </a>
+                                <a href="https://web.whatsapp.com">
+                                    <img src="static/img/whatsapp.svg" alt="whatsapp">
+                                </a>
+                                <a href="https://web.telegram.org">
+                                    <img src="static/img/tg.svg" alt="tg">
+                                </a>
+                                <a href="https://vk.com">
+                                    <img src="static/img/vk.svg" alt="vk">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </footer>
+    <!-- /.footer -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="static/js/slick.min.js"></script>
+    <script src="static/js/main.js"></script>
+</body>
+</html>
