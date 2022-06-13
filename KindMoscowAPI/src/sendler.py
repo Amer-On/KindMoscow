@@ -25,10 +25,6 @@ security = HTTPBasic()
 server = smtplib.SMTP_SSL('smtp.mail.ru')
 server.set_debuglevel(1)
 
-# connect to smtp server
-server.login(EMAIL, PASSWORD)
-server.auth_plain()
-
 
 TYPES = ["confirm-recovery", "confirm"]
 
@@ -64,10 +60,15 @@ async def send_email(recipient_email: str, mode: str, code: str, request: Reques
                   f"{link}\n\n\nЕсли вы получили это письмо по " \
                   f"ошибке, проигнорируйте его."
 
+        # connect to smtp server
+		server.login(EMAIL, PASSWORD)
+		server.auth_plain()
+
 		msg = MIMEMultipart()
 		msg['Subject'] = subject
 		msg.attach(MIMEText(message, 'plain'))
 		server.sendmail(EMAIL, recipient_email, msg.as_string())
+		server.quit()
 		return "OK"
 
 	else:
